@@ -10,7 +10,7 @@
 
 Linux releases take at-least 1-2 days extra due to compilation drive restrictions. Windows builds are 5x times faster because of Dev Drive being used.
 
-- Windows Releases
+- [Releases](https://github.com/BVSHAI/HellFire/releases/)
 
 ## Security
 
