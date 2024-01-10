@@ -1,2 +1,2 @@
-# HellFire - Highly Optimized Fireox
+# HellFire - Highly Optimized Firefox
 Highly Optimized Firefox Builds
