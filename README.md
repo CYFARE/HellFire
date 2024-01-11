@@ -8,9 +8,18 @@
 
 ## Releases
 
-Linux releases take at-least 1-2 days extra due to compilation drive restrictions. Windows builds are 5x times faster because of Dev Drive being used.
+Linux releases take at-least 1-2 days extra due to compute.
 
 - [Releases](https://github.com/BVSHAI/HellFire/releases/)
+
+## Compile Time Optimizations
+
+- [Link Time Optimization](https://llvm.org/docs/LinkTimeOptimization.html)
+- [Profile Guided Optimization](https://firefox-source-docs.mozilla.org/build/buildsystem/pgo.html)
+- [Rust Optimization Level 3](https://doc.rust-lang.org/book/ch14-01-release-profiles.html)
+- Disable Debug Mode
+- [GCC Ofast Optimization](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)
+- [Gold Linker - For Linux Builds](https://www.baeldung.com/linux/gnu-gold-linker)
 
 ## Security
 
