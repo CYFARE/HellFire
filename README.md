@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/BVSHAI/HellFire/main/Assets/logo.png">
 </p>
 
-**HellFire** is a highly optimized Firefox build that prioritizes absolute performance. It is a 1:1 compile without any source, configuration or visual changes. Just pure Firefox compiled for maximum performance.
+**HellFire** ( named after [HellFire Air-To-Surface missile](https://en.wikipedia.org/wiki/AGM-114_Hellfire) ) is a highly optimized Firefox build that prioritizes absolute performance. It is a 1:1 compile without any source, configuration or visual changes. Just pure Firefox compiled for maximum performance.
 
 ## Releases
 
