@@ -8,18 +8,24 @@
 
 ## Releases
 
-Linux releases take at-least 1-2 days extra due to compute.
+Only Windows builds are provided for now.
 
 - [Releases](https://github.com/BVSHAI/HellFire/releases/)
 
 ## Compile Time Optimizations
 
-- [Link Time Optimization](https://llvm.org/docs/LinkTimeOptimization.html)
-- [Profile Guided Optimization](https://firefox-source-docs.mozilla.org/build/buildsystem/pgo.html)
-- [Rust Optimization Level 3](https://doc.rust-lang.org/book/ch14-01-release-profiles.html)
-- Disable Debug Mode
-- [GCC Ofast Optimization](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)
-- [Gold Linker - For Linux Builds](https://www.baeldung.com/linux/gnu-gold-linker)
+- Enable -O3 optimization CFLAGS
+- Enable Rust language -O3 optimizations
+- Disable debug mode to avoid performance penalties
+- Enable link-time optimization (LTO) for better performance
+- Enable JE malloc
+- Disable Updater for performance
+- Disable Crash Reporter for performance
+- Disable Debug symbols for performance
+- Disable Maintenance Service for performance
+- Disable parental controls for performance
+- Reduce the binary size by stripping symbols
+- Specify the Profile-Guided Optimization (PGO)
 
 ## Security
 
@@ -29,7 +35,11 @@ Linux releases take at-least 1-2 days extra due to compute.
 
 ## Updates
 
-- If you are not able to update directly from within Firefox UI, please check here for new releases.
+- Check for latest updates on [Releases](https://github.com/BVSHAI/HellFire/releases/) page. You may use the provided installer.
+
+## Self Compile?
+
+Please see this [mozconfig](https://raw.githubusercontent.com/BVSHAI/HellFire/main/mozconfig) file if you wish to compile with the same optimizations :)
 
 ## Support?
 
@@ -38,6 +48,10 @@ If you like the huge performance improvements this provides, please consider sup
 <p align="center">
   <img src="https://raw.githubusercontent.com/BVSHAI/HellFire/main/Assets/support_upi.png">
 </p>
+
+## Ethics
+
+Please view the [Ethics Statement](https://raw.githubusercontent.com/BVSHAI/HellFire/main/ETHICS.md) for better clarity on project and communication with developers.
 
 ## Contact
 
