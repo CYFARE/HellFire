@@ -1,0 +1,57 @@
+# MOZCONFIG for HellFire Firefox Builds
+
+# Enable -O3 optimization flag for GCC
+ac_add_options --enable-optimize=-O3
+
+# Disable debug mode to avoid performance penalties
+ac_add_options --disable-debug
+
+# Enable link-time optimization for better performance
+ac_add_options --enable-lto
+
+# Enable AVX2 - Linux flag
+# For Windows, MVC++ requires CFLAGS export
+#ac_add_options --enable-avx2
+
+# Enable JE malloc
+ac_add_options --enable-jemalloc
+
+# Enable Wayland support - For Linux Only
+#ac_add_options --enable-default-toolkit=cairo-gtk3-wayland
+
+# Disable Updater for performance
+ac_add_options --disable-updater
+
+# Disable Crash Reporter for performance
+ac_add_options --disable-crashreporter
+
+# Disable Debug symbols for performance
+ac_add_options --disable-debug-symbols
+
+# Disable Maintenance Service for performance
+ac_add_options --disable-maintenance-service
+
+# Disable parental controls for performance
+ac_add_options --disable-parental-controls
+
+# Reduce the binary size by stripping symbols
+ac_add_options --enable-strip
+
+# Use the gold linker for faster linking (Linux only)
+#ac_add_options --enable-linker=gold
+
+# Specify the Profile-Guided Optimization
+mk_add_options MOZ_PGO=1
+
+# Keep the object directory separate to avoid clutter
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/objdir-opt
+
+# Enable Rust language optimizations
+export RUSTFLAGS="-C opt-level=3"
+
+# Disable tests to speed up the build process
+ac_add_options --disable-tests
+
+# Set the number of parallel jobs to speed up the build
+# Replace 'N' with the number of CPU cores you have
+mk_add_options MOZ_MAKE_FLAGS="-j12"
