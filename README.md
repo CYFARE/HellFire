@@ -1,4 +1,4 @@
-![Product](https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge) &nbsp;![License](https://img.shields.io/badge/-The%20Unlicense-61DAFB?logo=license&logoColor=white&style=for-the-badge) &nbsp;![Version](https://img.shields.io/badge/-123.0a1-61DAFB?logo=version&logoColor=white&style=for-the-badge)
+![Product](https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge) &nbsp;![License](https://img.shields.io/badge/-MPLv2.0-61DAFB?logo=license&logoColor=white&style=for-the-badge) &nbsp;![Version](https://img.shields.io/badge/-123.0a1-61DAFB?logo=version&logoColor=white&style=for-the-badge)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/BVSHAI/HellFire/main/Assets/logo.png">
