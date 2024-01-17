@@ -31,6 +31,8 @@ mk_add_options MOZ_DATA_REPORTING=0
 mk_add_options MOZ_SERVICES_HEALTHREPORT=0
 mk_add_options MOZ_TELEMETRY_REPORTING=0
 mk_add_options MOZ_OPTIMIZE=1
+ac_add_options --enable-jemalloc
+export RUSTFLAGS="-C opt-level=3"
 
 # Other Settings
 ac_add_options --disable-hardening
@@ -53,5 +55,5 @@ ac_add_options --enable-eme=widevine
 
 # Compile Configs
 #mk_add_options AUTOCLOBBER=1
-mk_add_options MOZ_MAKE_FLAGS="-j8"
+mk_add_options MOZ_MAKE_FLAGS="-j20"
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/objdir-opt
