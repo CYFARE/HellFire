@@ -14,24 +14,15 @@ Only Windows builds are provided for now.
 
 ## Compile Time Optimizations
 
-- Enable -O3 optimization CFLAGS
-- Enable Rust language -O3 optimizations
-- Disable debug mode to avoid performance penalties
-- Enable link-time optimization (LTO) for better performance
-- Enable JE malloc
-- Disable Updater for performance
-- Disable Crash Reporter for performance
-- Disable Debug symbols for performance
-- Disable Maintenance Service for performance
-- Disable parental controls for performance
-- Reduce the binary size by stripping symbols
-- Specify the Profile-Guided Optimization (PGO)
+HellFire offers multiple flavours of optimized builds, each with different levels of optimizations and security.
 
-## Security
+| **Configuration** | **Optimization and Security Settings** | **Description** |
+|--------------------|----------------------------------------|-----------------|
+| [HellFire Lazer](https://raw.githubusercontent.com/BVSHAI/HellFire/main/MozConfigs/mozconfig_lazer) | `-O3` Optimized with Default Security | Fast + default security with Mozilla's default compile |
+| [HellFire Missile](https://raw.githubusercontent.com/BVSHAI/HellFire/main/MozConfigs/mozconfig_missile) | `-Ofast` Optimized with Least Security | Super Fast + Less Secure |
+| [HellFire Tracker](https://raw.githubusercontent.com/BVSHAI/HellFire/main/MozConfigs/mozconfig_tracker) | `-Ofast` Optimized with Least Security + Debugging | Super Fast + Less Security + For Debugging Purposes |
 
-- As secure as original Firefox browser due to this being 1:1 identical build
-- No security features are added or removed
-- Patch state matches that of the latest Nightly branch
+> For customized builds like 'hardened' or mix of flag builds, please contact me.
 
 ## Updates
 
@@ -39,7 +30,7 @@ Only Windows builds are provided for now.
 
 ## Self Compile?
 
-Please see this [mozconfig](https://raw.githubusercontent.com/BVSHAI/HellFire/main/mozconfig) file if you wish to compile with the same optimizations :)
+Please download mozconfig from [HellFire MozConfigs](https://github.com/BVSHAI/HellFire/tree/main/MozConfigs) related to your preffered HellFire build flavor and rename the local file name to 'mozconfig'. Drop it under mozilla-unified and start your build process.
 
 ## Support?
 
@@ -56,4 +47,5 @@ Please view the [Ethics Statement](https://raw.githubusercontent.com/BVSHAI/Hell
 ## Contact
 
 Reach me out at:
+
 `murgimasalatikka[@]gmail[.]com`
