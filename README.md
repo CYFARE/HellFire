@@ -36,9 +36,7 @@ Please download mozconfig from [HellFire MozConfigs](https://github.com/BVSHAI/H
 
 If you like the huge performance improvements this provides, please consider supporting me via UPI (India only) and do write a note for 'HellFire Support'. Thanks for using this build!
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/BVSHAI/HellFire/main/Assets/support_upi.png">
-</p>
+Please reach me out via email below to request for UPI details.
 
 ## Ethics
 
