@@ -1,4 +1,4 @@
-![Product](https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge) &nbsp;![License](https://img.shields.io/badge/-MPLv2.0-61DAFB?logo=license&logoColor=white&style=for-the-badge) &nbsp;![Version](https://img.shields.io/badge/-123.0a1-61DAFB?logo=version&logoColor=white&style=for-the-badge)
+![Product](https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge) &nbsp;![License](https://img.shields.io/badge/-MPLv2.0-61DAFB?logo=license&logoColor=white&style=for-the-badge) &nbsp;![Version](https://img.shields.io/badge/-123.0a1_REV2-61DAFB?logo=version&logoColor=white&style=for-the-badge)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/BVSHAI/HellFire/main/Assets/logo.png">
@@ -8,7 +8,7 @@
 
 ## Releases
 
-Only Windows builds are provided for now.
+Offering Windows x64 and Linux x64 builds.
 
 - [Releases](https://github.com/BVSHAI/HellFire/releases/)
 
@@ -16,11 +16,18 @@ Only Windows builds are provided for now.
 
 HellFire offers multiple flavours of optimized builds, each with different levels of optimizations and security.
 
-| **Configuration** | **Optimization and Security Settings** | **Description** |
-|--------------------|----------------------------------------|-----------------|
-| [HellFire Lazer](https://raw.githubusercontent.com/BVSHAI/HellFire/main/MozConfigs/mozconfig_lazer) | `-O3` Optimized with Default Security | Fast + default security with Mozilla's default compile |
-| [HellFire Missile](https://raw.githubusercontent.com/BVSHAI/HellFire/main/MozConfigs/mozconfig_missile) | `-Ofast` Optimized with Least Security | Super Fast + Less Secure |
-| [HellFire Tracker](https://raw.githubusercontent.com/BVSHAI/HellFire/main/MozConfigs/mozconfig_tracker) | `-Ofast` Optimized with Least Security + Debugging | Super Fast + Less Security + For Debugging Purposes |
+| Configuration          | Optimization and Security Settings                     | Description                                            |
+|------------------------|--------------------------------------------------------|--------------------------------------------------------|
+| HellFire Lazer         | `-O3` Optimized with Default Security                  | Fast + default security with Mozilla's default compile |
+| HellFire Missile       | `-Ofast` Optimized with Least Security                 | Super Fast + Less Secure                               |
+| HellFire Tracker       | `-Ofast` Optimized with Least Security + Debugging     | Super Fast + Less Security + For Debugging Purposes    |
+
+Please check out Mozconfigs below:
+
+- [Win64 Mozconfigs](https://github.com/BVSHAI/HellFire/tree/main/MozConfigs/Win64)
+- [Linux64 Mozconfigs](https://github.com/BVSHAI/HellFire/tree/main/MozConfigs/Linux64)
+
+Please follow [Firefox Build Guide](https://firefox-source-docs.mozilla.org/setup/) to build your own version using HellFire mozconfigs. Before running `./mach build`, copy the desired mozconfig to `mozilla-unified` and rename it to `mozconfig`.
 
 > For customized builds like 'hardened' or mix of flag builds, please contact me.
 
