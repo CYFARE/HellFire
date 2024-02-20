@@ -1,4 +1,4 @@
-# MOZCONFIG for "HellFire Missile" Windows Build
+# MOZCONFIG for HellFire Missile Windows Build
 
 # Build Configs
 #ac_add_options --enable-application=browser
@@ -8,7 +8,7 @@ ac_add_options --disable-update-agent
 
 # Optimizations - Windows
 ac_add_options --enable-optimize=-Ofast
-ac_add_options MOZ_PGO=1
+#ac_add_options MOZ_PGO=1
 ac_add_options --enable-release
 ac_add_options --disable-debug
 ac_add_options --disable-debug-symbols
@@ -32,7 +32,7 @@ mk_add_options MOZ_SERVICES_HEALTHREPORT=0
 mk_add_options MOZ_TELEMETRY_REPORTING=0
 mk_add_options MOZ_OPTIMIZE=1
 ac_add_options --enable-jemalloc
-export RUSTFLAGS="-C opt-level=3"
+#export RUSTFLAGS=-C opt-level=3
 
 # Other Settings
 ac_add_options --disable-hardening
@@ -45,15 +45,15 @@ ac_add_options --enable-eme=widevine
 
 # Exports - Only use if absolutely interested on your Windows system
 # By default, if you follow Mozillas official doc, just ignore these configs
-#export WIN32_REDIST_DIR="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.38.33130\x64\Microsoft.VC143.CRT"
-#export CFLAGS="-Ofast -mavx -maes /clang:-Ofast /arch:AVX"
-#export CPPFLAGS="-Ofast -mavx -maes /clang:-Ofast /arch:AVX"
-#export CXXFLAGS="-Ofast -mavx -maes /clang:-Ofast /arch:AVX"
-#export RUSTFLAGS="-C target-feature=+avx"
-#export LDFLAGS="-Wl,-Ofast -mavx -maes"
+#export WIN32_REDIST_DIR=CProgram FilesMicrosoft Visual Studio2022CommunityVCRedistMSVC14.38.33130x64Microsoft.VC143.CRT
+#export CFLAGS=-Ofast -mavx -maes clang-Ofast archAVX
+#export CPPFLAGS=-Ofast -mavx -maes clang-Ofast archAVX
+#export CXXFLAGS=-Ofast -mavx -maes clang-Ofast archAVX
+#export RUSTFLAGS=-C target-feature=+avx
+#export LDFLAGS=-Wl,-Ofast -mavx -maes
 #export VERBOSE=1
 
 # Compile Configs
-#mk_add_options AUTOCLOBBER=1
-mk_add_options MOZ_MAKE_FLAGS="-j20"
-mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/objdir-opt
+mk_add_options AUTOCLOBBER=1
+mk_add_options MOZ_MAKE_FLAGS=-j20
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@objdir-opt
