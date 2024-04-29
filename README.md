@@ -19,7 +19,9 @@ We provide builds for both Windows x64 and Linux x64 platforms.
 
 ## Benchmarks
 
-
+<h2 align="center">
+  <img src="https://raw.githubusercontent.com/CYFARE/HellFire/main/Benchmarks/score.png" alt="Benchmarks">
+</h2>
 
 ## Compile Time Optimizations
 
