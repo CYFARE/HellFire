@@ -19,9 +19,13 @@ We provide builds for both Windows x64 and Linux x64 platforms.
 
 ## Benchmarks
 
+Higher score = Faster browser. Hellfire 127 outperformed both ungoogled-chromium and forked-optimized Mercury browser! 
+
 <h2 align="center">
   <img src="https://raw.githubusercontent.com/CYFARE/HellFire/main/Benchmarks/score.png" alt="Benchmarks">
 </h2>
+
+You don't need to have a shady easter-egg inside forked sources.. just download & use HellFire :)
 
 ## Compile Time Optimizations
 
