@@ -14,8 +14,8 @@
 
 We provide builds for both Windows x64 and Linux x64 platforms.
 
-- **Windows x64 Builds**: [Windows Releases](https://github.com/CYFARE/HellFire/releases/)
-- **Linux x64 Builds**: [Linux Releases](https://github.com/CYFARE/HellFire/releases/)
+- **Windows x64 Builds**: [Releases](https://github.com/CYFARE/HellFire/releases/)
+- **Linux x64 Builds**: [Releases](https://github.com/CYFARE/HellFire/releases/)
 
 ## Benchmarks
 
@@ -45,9 +45,22 @@ To build your own version, follow the [Firefox Build Guide](https://firefox-sour
 
 > For custom builds like 'hardened' or mixed flag builds, please contact us directly.
 
-## Updates
+## Install & Update HellFire
 
 Stay updated with the latest versions and installer on our [Releases](https://github.com/CYFARE/HellFire/releases/) page.
+
+- Windows installer exe will automatically upgrade/update the existing install without removing/changing your bookmarks or settings :)
+- For GNU/Linux, check the following:
+
+1) Download preferred 7z package of HellFire from releases (7z packages are offered starting from v127.0a1). 
+2) Download hellfire_installer.sh script from releases.
+3) `cd ~/ && Downloads && sudo chmod +x hellfire_installer.sh && ./hellfire_installer.sh`
+
+- If you're using Ubuntu or Ubuntu based OS like Zorin/Mint etc., then check your application menu & HellFire shortcut will be there.
+- You can also run HellFire from terminal using: `hellfire` command.
+- You can pipe hellfire through proxychains for using with proxies or tor using: `proxychains hellfire`
+- For updating to new version, just follow same steps & installer script will update your hellfire browser without editing your bookmarks, extensions or settings :)
+
 
 ## Self Compile
 
