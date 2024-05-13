@@ -35,7 +35,7 @@ HellFire offers a variety of optimized builds, each tailored for different level
 |------------------------|--------------------------------------------------------|--------------------------------------------------------|
 | HellFire Lazer         | `-O3` Optimized with Default Security                  | Fast + Default Security, based on Mozilla's default compile |
 | HellFire Missile       | `-Ofast` Optimized with Reduced Security               | Super Fast + Less Secure                               |
-| HellFire Tracker       | `-Ofast` Optimized with Reduced Security + Debugging   | Super Fast + Less Secure + For Debugging Purposes      |
+| HellFire Tracker (discontinued)       | `-Ofast` Optimized with Reduced Security + Debugging   | Super Fast + Less Secure + For Debugging Purposes      |
 
 For more details, explore our Mozconfigs:
 - [Win64 Mozconfigs](https://github.com/CYFARE/HellFire/tree/main/MozConfigs/Win64)
@@ -43,7 +43,7 @@ For more details, explore our Mozconfigs:
 
 To build your own version, follow the [Firefox Build Guide](https://firefox-source-docs.mozilla.org/setup/). Ensure you copy the desired mozconfig to `mozilla-unified` and rename it to `mozconfig` before running `./mach build`.
 
-> For custom builds like 'hardened' or mixed flag builds, please contact us directly.
+> For custom builds like 'hardened' or mixed flag builds, please contact directly.
 
 ## Install & Update HellFire
 
@@ -57,11 +57,9 @@ For GNU/Linux, check the following:
 2) Download hellfire_installer.sh script from releases.
 3) `cd ~/ && Downloads && sudo chmod +x hellfire_installer.sh && ./hellfire_installer.sh`
 
-
 If you're using Ubuntu or Ubuntu based OS like Zorin/Mint etc., then check your application menu & HellFire shortcut will be there. You can also run HellFire from terminal using: `hellfire` command. You can pipe hellfire through proxychains for using with proxies or tor using: `proxychains hellfire`
 
 For updating to new version on GNU/Linux, just follow same steps & installer script will update your hellfire browser without editing your bookmarks, extensions or settings :)
-
 
 ## Self Compile
 
@@ -76,9 +74,3 @@ For UPI details, contact us via the email provided below.
 ## Ethics
 
 For insights into our project's ethos, please read our [Ethics Statement](https://raw.githubusercontent.com/CYFARE/HellFire/main/ETHICS.md).
-
-## Contact
-
-Feel free to reach out at:
-
-`murgimasalatikka[@]gmail[.]com`

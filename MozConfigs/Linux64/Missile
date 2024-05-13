@@ -6,7 +6,7 @@ ac_add_options --disable-artifact-builds
 #ac_add_options --enable-bootstrap
 #ac_add_options --disable-update-agent
 
-# Optimizations - Windows
+# Optimizations
 ac_add_options --enable-optimize=-Ofast
 ac_add_options MOZ_PGO=1
 ac_add_options --enable-release
@@ -55,5 +55,5 @@ ac_add_options --enable-eme=widevine
 
 # Compile Configs
 #mk_add_options AUTOCLOBBER=1
-mk_add_options MOZ_MAKE_FLAGS="-j14"
+mk_add_options MOZ_MAKE_FLAGS="-j20"
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/objdir-opt
