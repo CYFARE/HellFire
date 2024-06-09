@@ -15,10 +15,11 @@
 We provide builds for both Windows x64 and Linux x64 platforms.
 
 - **x64 Windows and GNU/Linux Builds**: [Releases](https://github.com/CYFARE/HellFire/releases/)
+- Starting from v128.0a1 FP1, Windows builds are not provided. However, you can DIY using the provided Mozconfigs.
 
 ## Benchmarks
 
-Higher score = Faster browser. Hellfire 127 outperformed both ungoogled-chromium and forked-optimized Mercury browser! 
+Higher score = Faster browser. Hellfire 127 and later outperforms both ungoogled-chromium and forked-optimized Mercury browser!
 
 <h2 align="center">
   <img src="https://raw.githubusercontent.com/CYFARE/HellFire/main/Benchmarks/score.png" alt="Benchmarks">
@@ -32,13 +33,13 @@ HellFire offers a variety of optimized builds, each tailored for different level
 
 | Configuration          | Optimization and Security Settings                     | Description                                            |
 |------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| HellFire Lazer         | `-O3` Optimized with Default Security                  | Fast + Default Security, based on Mozilla's default compile |
-| HellFire Missile       | `-Ofast` Optimized with Reduced Security               | Super Fast + Less Secure                               |
-| HellFire Tracker (discontinued)       | `-Ofast` Optimized with Reduced Security + Debugging   | Super Fast + Less Secure + For Debugging Purposes      |
+| HellFire Lazer         | `-O3` Optimized with Hardened Security                  | Fast and Hardened |
+| HellFire Missile       | `-Ofast` Optimized with Reduced Security               | Faster but Less Secure                               |
 
 For more details, explore our Mozconfigs:
-- [Win64 Mozconfigs](https://github.com/CYFARE/HellFire/tree/main/MozConfigs/Win64)
+
 - [Linux64 Mozconfigs](https://github.com/CYFARE/HellFire/tree/main/MozConfigs/Linux64)
+- [Win64 Mozconfigs](https://github.com/CYFARE/HellFire/tree/main/MozConfigs/Win64)
 
 To build your own version, follow the [Firefox Build Guide](https://firefox-source-docs.mozilla.org/setup/). Ensure you copy the desired mozconfig to `mozilla-unified` and rename it to `mozconfig` before running `./mach build`.
 
