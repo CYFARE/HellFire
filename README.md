@@ -25,7 +25,7 @@ Higher score = Faster browser. Hellfire 127 and later outperforms both ungoogled
  <img src="https://raw.githubusercontent.com/CYFARE/HellFire/main/Benchmarks/chart.png">
 </h2>
 
-<h2 align="center">
+<h6 align="center">
 
 | Benchmark | HellFire Lazer 129 | Mercury 123 - Thorium |
 |------------------|---------------------|-------------------|
@@ -33,7 +33,7 @@ Higher score = Faster browser. Hellfire 127 and later outperforms both ungoogled
 | Octane 2.1       | 50971               | 51782             |
 | JetStream 2      | 222.982             | 215.101           |
 
-</h2>
+</h6>
 
 You don't need to have a shady easter-egg inside forked sources.. just download & use HellFire :)
 
