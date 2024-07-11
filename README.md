@@ -5,7 +5,7 @@
 <h2 align="center">
   <img src="https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge" alt="Product: HellFire">&nbsp;
   <img src="https://img.shields.io/badge/-MPLv2.0-61DAFB?style=for-the-badge" alt="License: MPLv2.0">&nbsp;
-  <img src="https://img.shields.io/badge/-129.0a1-61DAFB?style=for-the-badge" alt="Version: 129.0a1">
+  <img src="https://img.shields.io/badge/-130.0a1-61DAFB?style=for-the-badge" alt="Version: 130.0a1">
 </h2>
 
 **HellFire**, named after the [HellFire Air-To-Surface missile](https://en.wikipedia.org/wiki/AGM-114_Hellfire), is a Firefox build optimized for absolute performance. It's a direct compilation of Firefox, emphasizing maximum performance without any source, configuration, or visual modifications.
@@ -44,7 +44,6 @@ HellFire offers a variety of optimized builds, each tailored for different level
 | Configuration          | Optimization and Security Settings                     | Description                                            |
 |------------------------|--------------------------------------------------------|--------------------------------------------------------|
 | HellFire Lazer         | `-O3` Optimized with Hardened Security                  | Fast and Hardened |
-| HellFire Missile       | `-Ofast` Optimized with Reduced Security               | Faster but Less Secure                               |
 
 For more details, explore our Mozconfigs:
 
@@ -53,7 +52,7 @@ For more details, explore our Mozconfigs:
 
 To build your own version, follow the [Firefox Build Guide](https://firefox-source-docs.mozilla.org/setup/). Ensure you copy the desired mozconfig to `mozilla-unified` and rename it to `mozconfig` before running `./mach build`.
 
-> For custom builds like 'hardened' or mixed flag builds, please contact directly.
+> For custom builds like 'hardened', 'Insecure' or mixed flag builds, please contact via mail.
 
 ## Install & Update HellFire
 
