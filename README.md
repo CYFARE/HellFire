@@ -5,7 +5,7 @@
 <h2 align="center">
   <img src="https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge" alt="Product: HellFire">&nbsp;
   <img src="https://img.shields.io/badge/-MPLv2.0-61DAFB?style=for-the-badge" alt="License: MPLv2.0">&nbsp;
-  <img src="https://img.shields.io/badge/-131.0a1-61DAFB?style=for-the-badge" alt="Version: 131.0a1">
+  <img src="https://img.shields.io/badge/-132.0a1-61DAFB?style=for-the-badge" alt="Version: 132.0a1">
 </h2>
 
 **HellFire**, named after the [HellFire Air-To-Surface missile](https://en.wikipedia.org/wiki/AGM-114_Hellfire), is a Firefox build optimized for absolute performance. It's a direct compilation of Firefox, emphasizing maximum performance without any source, configuration, or visual modifications.
@@ -44,6 +44,7 @@ HellFire offers a variety of optimized builds, each tailored for different level
 | Configuration          | Optimization and Security Settings                     | Description                                            |
 |------------------------|--------------------------------------------------------|--------------------------------------------------------|
 | HellFire Lazer         | `-O3` Optimized with Hardened Security                  | Fast and Hardened |
+| HellFire Lazer AVX+SSE3         | `-O3` Optimized with Hardened Security + Modern CPU                  | Fastest and Hardened (requires modern CPU)|
 
 For more details, explore our Mozconfigs:
 
@@ -62,7 +63,7 @@ Windows installer exe will automatically upgrade/update the existing install wit
 
 For GNU/Linux, check the following:
 
-1) Download preferred 7z package of HellFire from releases (7z packages are offered starting from v127.0a1). 
+1) Download preferred 7z package of HellFire from releases (7z packages are offered starting from v127.0a1).
 2) Download hellfire_installer.sh script from releases.
 3) `cd ~/ && Downloads && sudo chmod +x hellfire_installer.sh && ./hellfire_installer.sh`
 

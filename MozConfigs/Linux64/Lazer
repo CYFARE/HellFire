@@ -28,7 +28,6 @@ mk_add_options MOZ_DATA_REPORTING=0
 mk_add_options MOZ_SERVICES_HEALTHREPORT=0
 mk_add_options MOZ_TELEMETRY_REPORTING=0
 mk_add_options MOZ_OPTIMIZE=1
-export RUSTFLAGS="-C opt-level=3"
 
 # Other Settings :: Security
 ac_add_options --enable-hardening
@@ -40,6 +39,11 @@ ac_add_options --enable-webrtc
 ac_add_options --enable-jxl
 ac_add_options --enable-av1
 ac_add_options --enable-eme=widevine
+
+# Other Settings :: Exports
+export RUSTFLAGS="-C opt-level=3"
+export CFLAGS="-mavx -msse3 $CFLAGS"
+export CXXFLAGS="-mavx -msse3 $CXXFLAGS"
 
 # Compile Configs
 mk_add_options AUTOCLOBBER=1
