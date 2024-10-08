@@ -5,17 +5,16 @@
 <h2 align="center">
   <img src="https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge" alt="Product: HellFire">&nbsp;
   <img src="https://img.shields.io/badge/-MPLv2.0-61DAFB?style=for-the-badge" alt="License: MPLv2.0">&nbsp;
-  <img src="https://img.shields.io/badge/-132.0a1-61DAFB?style=for-the-badge" alt="Version: 132.0a1">
+  <img src="https://img.shields.io/badge/-133.0a1-61DAFB?style=for-the-badge" alt="Version: 133.0a1">
 </h2>
 
 **HellFire**, named after the [HellFire Air-To-Surface missile](https://en.wikipedia.org/wiki/AGM-114_Hellfire), is a Firefox build optimized for absolute performance. It's a direct compilation of Firefox, emphasizing maximum performance without any source, configuration, or visual modifications.
 
 ## Releases
 
-We provide builds for both Windows x64 and Linux x64 platforms.
+We provide x86_64 builds for both GNU/Linux and Windows platforms.
 
-- **x64 Windows and GNU/Linux Builds**: [Releases](https://github.com/CYFARE/HellFire/releases/)
-- **Starting from v131.0a1 Windows x64 build is also provided!**: [Releases](https://github.com/CYFARE/HellFire/releases/)
+- **x86_64 GNU/Linux and Windows Builds**: [Releases](https://github.com/CYFARE/HellFire/releases/)
 
 ## Benchmarks
 
@@ -43,8 +42,7 @@ HellFire offers a variety of optimized builds, each tailored for different level
 
 | Configuration          | Optimization and Security Settings                     | Description                                            |
 |------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| HellFire Lazer         | `-O3` Optimized with Hardened Security                  | Fast and Hardened |
-| HellFire Lazer AVX+SSE3         | `-O3` Optimized with Hardened Security + Modern CPU                  | Fastest and Hardened (requires modern CPU)|
+| HellFire Lazer         | `-O3` Optimized with Hardened Security                  | AVX + SSE3 + SSSE3 + SSE4.1 + PGO Single Build |
 
 For more details, explore our Mozconfigs:
 
@@ -53,7 +51,7 @@ For more details, explore our Mozconfigs:
 
 To build your own version, follow the [Firefox Build Guide](https://firefox-source-docs.mozilla.org/setup/). Ensure you copy the desired mozconfig to `mozilla-unified` and rename it to `mozconfig` before running `./mach build`.
 
-> For custom builds like 'hardened', 'Insecure' or mixed flag builds, please contact via mail.
+> For custom builds like 'hardened', 'Insecure' or mixed flag builds, please contact via: security@cyfare.net
 
 ## Install & Update HellFire
 
