@@ -42,7 +42,7 @@ HellFire offers a variety of optimized builds, each tailored for different level
 
 | Configuration          | Optimization and Security Settings                     | Description                                            |
 |------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| HellFire Lazer         | `-O3` Optimized with Hardened Security                  | AVX + SSE3 + SSSE3 + SSE4.1 + PGO Single Build |
+| HellFire Lazer         | `-O3` Optimized with Hardened Security                  | AVX + SSE3 + SSSE3 + SSE4.1 + PGO Single Build + Full LTO |
 
 For more details, explore our Mozconfigs:
 
