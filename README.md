@@ -5,7 +5,7 @@
 <h2 align="center">
   <img src="https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge" alt="Product: HellFire">&nbsp;
   <img src="https://img.shields.io/badge/-MPLv2.0-61DAFB?style=for-the-badge" alt="License: MPLv2.0">&nbsp;
-  <img src="https://img.shields.io/badge/-136.0a1-61DAFB?style=for-the-badge" alt="Version: 136.0a1">
+  <img src="https://img.shields.io/badge/-137.0a1-61DAFB?style=for-the-badge" alt="Version: 137.0a1">
 </h2>
 
 **HellFire**, named after the [HellFire Air-To-Surface missile](https://en.wikipedia.org/wiki/AGM-114_Hellfire), is a Firefox build optimized for absolute performance. It's a direct compilation of Firefox, emphasizing maximum performance without any source, configuration, or visual modifications.
@@ -42,7 +42,10 @@ HellFire offers a variety of optimized builds, each tailored for different level
 
 | Configuration          | Optimization and Security Settings                     | Description                                            |
 |------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| HellFire Lazer         | `-O3` Optimized with Hardened Security & Sandbox Enabled                  | AVX2 + SSE4.2 + PGO + Full LTO |
+| HellFire Lazer (GNU/Linux)         | `-O3` Optimized with Hardened Security & Sandbox Enabled                  | AVX2 + SSE4.2 + PGO + Full LTO |
+| HellFire Lazer (GNU/Linux)        | `-O3` Optimized with Hardened Security & Sandbox Enabled                  | PGO + Full LTO |
+| HellFire Lazer (Windows)         | `-O3` Optimized with Hardened Security & Sandbox Enabled                  | AVX2 + SSE4.2 + PGO |
+| HellFire Lazer (Windows)        | `-O3` Optimized with Hardened Security & Sandbox Enabled                  | PGO |
 
 For more details, explore our Mozconfigs:
 
@@ -68,6 +71,13 @@ For GNU/Linux, check the following:
 If you're using Ubuntu or Ubuntu based OS like Zorin/Mint etc., then check your application menu & HellFire shortcut will be there. You can also run HellFire from terminal using: `hellfire` command. You can pipe hellfire through proxychains for using with proxies or tor using: `proxychains hellfire`
 
 For updating to new version on GNU/Linux, just follow same steps & installer script will update your hellfire browser without editing your bookmarks, extensions or settings :)
+
+## Known Issues
+
+### AVX2 + SSE4.2 Compatibility
+
+- If you have issues related to AVX2 + SSE4.2 versions (even if your CPU supports it, it may be caused by upstream changes or your specific CPU not properly handling the instruction sets), please try to install the provided standard builds.
+- If you still face any issues with the standard builds, please file a bug report at https://bugzilla.mozilla.org/enter_bug.cgi
 
 ## Self Compile
 
