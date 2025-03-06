@@ -64,7 +64,7 @@ For GNU/Linux, check the following:
 
 1) Download preferred 7z package of HellFire from releases (7z packages are offered starting from v127.0a1).
 2) Download hellfire_installer.sh script from releases.
-3) `cd ~/ && Downloads && sudo chmod +x hellfire_installer.sh && ./hellfire_installer.sh`
+3) `cd ~/ && cd Downloads && sudo chmod +x hellfire_installer.sh && ./hellfire_installer.sh`
 
 If you're using Ubuntu or Ubuntu based OS like Zorin/Mint etc., then check your application menu & HellFire shortcut will be there. You can also run HellFire from terminal using: `hellfire` command. You can pipe hellfire through proxychains for using with proxies or tor using: `proxychains hellfire`
 
