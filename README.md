@@ -5,7 +5,7 @@
 <h2 align="center">
   <img src="https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge" alt="Product: HellFire">&nbsp;
   <img src="https://img.shields.io/badge/-MPLv2.0-61DAFB?style=for-the-badge" alt="License: MPLv2.0">&nbsp;
-  <img src="https://img.shields.io/badge/-137.0a1-61DAFB?style=for-the-badge" alt="Version: 137.0a1">
+  <img src="https://img.shields.io/badge/-138.0a1-61DAFB?style=for-the-badge" alt="Version: 138.0a1">
 </h2>
 
 **HellFire**, named after the [HellFire Air-To-Surface missile](https://en.wikipedia.org/wiki/AGM-114_Hellfire), is a Firefox build optimized for absolute performance. It's a direct compilation of Firefox, emphasizing maximum performance without any source, configuration, or visual modifications.
@@ -42,10 +42,8 @@ HellFire offers a variety of optimized builds, each tailored for different level
 
 | Configuration          | Optimization and Security Settings                     | Description                                            |
 |------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| HellFire Lazer (GNU/Linux)         | `-O3` Optimized with Hardened Security & Sandbox Enabled                  | AVX2 + SSE4.2 + PGO + Full LTO |
-| HellFire Lazer (GNU/Linux)        | `-O3` Optimized with Hardened Security & Sandbox Enabled                  | PGO + Full LTO |
-| HellFire Lazer (Windows)         | `-O3` Optimized with Hardened Security & Sandbox Enabled                  | AVX2 + SSE4.2 + PGO |
-| HellFire Lazer (Windows)        | `-O3` Optimized with Hardened Security & Sandbox Enabled                  | PGO |
+| HellFire (GNU/Linux)         | `-O3` Optimized, Hardened Security, Sandbox Enabled                  | AVX2 + SSE4.2 + Full LTO |
+| HellFire (Windows)         | `-O3` Optimized, Hardened Security, Sandbox Enabled                  | AVX2 + SSE4.2 |
 
 For more details, explore our Mozconfigs:
 
