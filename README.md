@@ -70,13 +70,6 @@ If you're using Ubuntu or Ubuntu based OS like Zorin/Mint etc., then check your 
 
 For updating to new version on GNU/Linux, just follow same steps & installer script will update your hellfire browser without editing your bookmarks, extensions or settings :)
 
-## Known Issues
-
-### AVX2 + SSE4.2 Compatibility
-
-- If you have issues related to AVX2 + SSE4.2 versions (even if your CPU supports it, it may be caused by upstream changes or your specific CPU not properly handling the instruction sets), please try to install the provided standard builds.
-- If you still face any issues with the standard builds, please file a bug report at https://bugzilla.mozilla.org/enter_bug.cgi
-
 ## Self Compile
 
 Download the mozconfig for your preferred HellFire build from [HellFire MozConfigs](https://github.com/CYFARE/HellFire/tree/main/MozConfigs), rename it to 'mozconfig', place it under mozilla-unified, and begin your build.
