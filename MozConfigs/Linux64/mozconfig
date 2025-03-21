@@ -42,10 +42,10 @@ mk_add_options MOZ_DATA_REPORTING=0
 mk_add_options MOZ_SERVICES_HEALTHREPORT=0
 mk_add_options MOZ_TELEMETRY_REPORTING=0
 
-export RUSTFLAGS="-C opt-level=3 -C target-cpu=x86-64-v3 -C codegen-units=1 -Cpanic=abort -Cforce-frame-pointers=no -Cllvm-args=--inline-threshold=1000 -Cllvm-args=-vectorize-loops -Cllvm-args=-vectorize-slp"
-export CFLAGS="-O3 -march=x86-64-v3 -mavx2 -maes -msse4.2 -fno-semantic-interposition -fomit-frame-pointer -fdata-sections -ffunction-sections -fno-plt -funroll-loops $CFLAGS"
+export RUSTFLAGS="-C opt-level=3 -C target-cpu=x86-64-v3 -C target-feature=+avx2,+aes,+sse4.2,+bmi,+bmi2,+fma,+lzcnt,+popcnt -C codegen-units=1 -C debuginfo=0 -C panic=abort -C force-frame-pointers=no -C embed-bitcode=yes -C inline-threshold=2000 -C llvm-args=--vectorize-loops -C llvm-args=--vectorize-slp -C llvm-args=--unroll-threshold=1000"
+export CFLAGS="-O3 -march=x86-64-v3 -mavx2 -maes -msse4.2 -mbmi -mbmi2 -mfma -mlzcnt -mpopcnt -fno-semantic-interposition -fomit-frame-pointer -fdata-sections -ffunction-sections -fno-plt -funroll-loops -ftree-vectorize -fno-math-errno -freciprocal-math -fno-trapping-math -fno-common -pipe -fmerge-all-constants -fno-signed-zeros -fno-zero-initialized-in-bss"
 export CXXFLAGS="$CFLAGS"
-export LDFLAGS="-Wl,-O3 -Wl,--gc-sections -Wl,-z,now -Wl,-z,relro -Wl,--icf=all $LDFLAGS"
+export LDFLAGS="-Wl,-O3 -Wl,--gc-sections -Wl,-z,now -Wl,-z,relro -Wl,--icf=all -Wl,--as-needed -Wl,--hash-style=gnu -Wl,--sort-common -Wl,--build-id=none"
 
 export VERBOSE=1
 mk_add_options AUTOCLOBBER=1
