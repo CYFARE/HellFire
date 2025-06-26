@@ -5,7 +5,7 @@
 <h2 align="center">
   <img src="https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge" alt="Product: HellFire">&nbsp;
   <img src="https://img.shields.io/badge/-MPLv2.0-61DAFB?style=for-the-badge" alt="License: MPLv2.0">&nbsp;
-  <img src="https://img.shields.io/badge/-141.0a1-61DAFB?style=for-the-badge" alt="Version: 141.0a1">
+  <img src="https://img.shields.io/badge/-142.0a1-61DAFB?style=for-the-badge" alt="Version: 142.0a1">
 </h2>
 
 **HellFire**, named after the [HellFire Air-To-Surface missile](https://en.wikipedia.org/wiki/AGM-114_Hellfire), is a Firefox build optimized for absolute performance. It's a direct compilation of Firefox, emphasizing maximum performance without any source, configuration, or visual modifications.
@@ -62,8 +62,13 @@ Windows installer exe will automatically upgrade/update the existing install wit
 
 For GNU/Linux, check the following:
 
+1) Make sure to have following packages: `sudo apt install -y python3-gi python3-gi-cairo gir1.2-gtk-4.0 gir1.2-adw-1`
+2) Download and run `python linux_installer.py`
+
+Legacy installer (incase of issues):
+
 1) Download preferred 7z package of HellFire from releases (7z packages are offered starting from v127.0a1).
-2) Download hellfire_installer.sh script from releases.
+2) Download hellfire_installer.sh script from older releases
 3) `cd ~/ && cd Downloads && sudo chmod +x hellfire_installer.sh && ./hellfire_installer.sh`
 
 If you're using Ubuntu or Ubuntu based OS like Zorin/Mint etc., then check your application menu & HellFire shortcut will be there. You can also run HellFire from terminal using: `hellfire` command. You can pipe hellfire through proxychains for using with proxies or tor using: `proxychains hellfire`
