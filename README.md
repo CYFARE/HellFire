@@ -18,7 +18,7 @@ We provide x86_64 builds for both GNU/Linux and Windows platforms.
 
 ## Benchmarks
 
-Higher score = Faster browser. Hellfire 127 and later outperforms both ungoogled-chromium and forked-optimized Mercury browser!
+Higher score = Faster browser. Hellfire 144 outperforms Firefox mainline and Ungoogled Chromium.
 
 <h2 align="center">
  <img src="https://raw.githubusercontent.com/CYFARE/HellFire/main/Benchmarks/chart.png">
@@ -26,11 +26,9 @@ Higher score = Faster browser. Hellfire 127 and later outperforms both ungoogled
 
 <h6 align="center">
 
-| Benchmark | HellFire Lazer 129 | Mercury 123 - Thorium |
-|------------------|---------------------|-------------------|
-| Speedometer 2.1  | 387                 | 345               |
-| Octane 2.1       | 50971               | 51782             |
-| JetStream 2      | 222.982             | 215.101           |
+| Benchmark       | HellFire 144.0a1 | Ungoogled Chromium | Firefox 142.0.1 |
+|-----------------|------------------|--------------------|-----------------|
+| Speedometer 3.1 | 20.9327          | 20.2244            | 19.9420         |
 
 </h6>
 
