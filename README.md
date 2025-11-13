@@ -14,7 +14,11 @@
 
 We provide x86_64 builds for both GNU/Linux and Windows platforms.
 
-- **x86_64 GNU/Linux and Windows Builds**: [Releases](https://github.com/CYFARE/HellFire/releases/)
+- **x86_64 GNU/Linux**: [Releases](https://github.com/CYFARE/HellFire/releases/)
+
+Note: Windows builds failing consistently. Microsoft Windows has been the single most bugged and worst system for developers and it's users. Due to consistent issues exclusive to Windows, Microsoft Windows is removed from support completely, with immediate effect.
+
+As Linus Torvalds said to NVIDIA once, I say to Microsoft - **FUCK YOU MICROSOFT**
 
 ## Benchmarks
 
@@ -86,3 +90,4 @@ For UPI details, contact us via the email provided below.
 ## Ethics
 
 For insights into our project's ethos, please read our [Ethics Statement](https://raw.githubusercontent.com/CYFARE/HellFire/main/ETHICS.md).
+
