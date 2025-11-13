@@ -12,7 +12,7 @@
 
 ## Releases
 
-We provide x86_64 builds for both GNU/Linux and Windows platforms.
+We provide x86_64 builds for both GNU/Linux.
 
 - **x86_64 GNU/Linux**: [Releases](https://github.com/CYFARE/HellFire/releases/)
 
@@ -45,12 +45,11 @@ HellFire offers a variety of optimized builds, each tailored for different level
 | Configuration          | Optimization and Security Settings                     | Description                                            |
 |------------------------|--------------------------------------------------------|--------------------------------------------------------|
 | HellFire (GNU/Linux)         | `-O3` Optimized, Hardened Security, Sandbox Enabled                  | AVX2 + SSE4.2 + Full LTO |
-| HellFire (Windows)         | `-O3` Optimized, Hardened Security, Sandbox Enabled                  | AVX2 + SSE4.2 |
+
 
 For more details, explore our Mozconfigs:
 
 - [Linux64 Mozconfigs](https://github.com/CYFARE/HellFire/tree/main/MozConfigs/Linux64)
-- [Win64 Mozconfigs](https://github.com/CYFARE/HellFire/tree/main/MozConfigs/Win64)
 
 To build your own version, follow the [Firefox Build Guide](https://firefox-source-docs.mozilla.org/setup/). Ensure you copy the desired mozconfig to `mozilla-unified` and rename it to `mozconfig` before running `./mach build`.
 
@@ -59,8 +58,6 @@ To build your own version, follow the [Firefox Build Guide](https://firefox-sour
 ## Install & Update HellFire
 
 Stay updated with the latest versions and installer on our [Releases](https://github.com/CYFARE/HellFire/releases/) page.
-
-Windows installer exe will automatically upgrade/update the existing install without removing/changing your bookmarks or settings :)
 
 For GNU/Linux, check the following:
 
@@ -90,4 +87,5 @@ For UPI details, contact us via the email provided below.
 ## Ethics
 
 For insights into our project's ethos, please read our [Ethics Statement](https://raw.githubusercontent.com/CYFARE/HellFire/main/ETHICS.md).
+
 
