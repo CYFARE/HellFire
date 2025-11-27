@@ -59,7 +59,7 @@ To build your own version, follow the [Firefox Build Guide](https://firefox-sour
 
 Stay updated with the latest versions and installer on our [Releases](https://github.com/CYFARE/HellFire/releases/) page.
 
-For GNU/Linux, check the following:
+For GNU/Linux, you can either install <a href='https://github.com/CYFARE/HellFire/releases/'><img src="https://img.shields.io/badge/-FLATPAK-61DAFB?style=for-the-badge"></a> or follow the below process:
 
 1) Make sure to have following packages: `sudo apt install -y python3-gi python3-gi-cairo gir1.2-gtk-4.0 gir1.2-adw-1`
 2) Download and run `python linux_installer.py`
@@ -87,6 +87,7 @@ For UPI details, contact us via the email provided below.
 ## Ethics
 
 For insights into our project's ethos, please read our [Ethics Statement](https://raw.githubusercontent.com/CYFARE/HellFire/main/ETHICS.md).
+
 
 
 
