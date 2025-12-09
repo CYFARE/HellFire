@@ -5,7 +5,7 @@
 <h2 align="center">
   <img src="https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge" alt="Product: HellFire">&nbsp;
   <img src="https://img.shields.io/badge/-MPLv2.0-61DAFB?style=for-the-badge" alt="License: MPLv2.0">&nbsp;
-  <img src="https://img.shields.io/badge/-147.0a1-61DAFB?style=for-the-badge" alt="Version: 147.0a1">
+  <img src="https://img.shields.io/badge/-148.0a1-61DAFB?style=for-the-badge" alt="Version: 148.0a1">
 </h2>
 
 **HellFire**, named after the [HellFire Air-To-Surface missile](https://en.wikipedia.org/wiki/AGM-114_Hellfire), is a Firefox build optimized for absolute performance. It's a direct compilation of Firefox, emphasizing maximum performance without any source, configuration, or visual modifications.
@@ -87,6 +87,7 @@ For UPI details, contact us via the email provided below.
 ## Ethics
 
 For insights into our project's ethos, please read our [Ethics Statement](https://raw.githubusercontent.com/CYFARE/HellFire/main/ETHICS.md).
+
 
 
 
