@@ -1,0 +1,50 @@
+# MOZCONFIG for "HellFire Lazer" GNU/Linux Build
+
+# Build Configs
+ac_add_options --enable-application=browser
+ac_add_options --disable-artifact-builds
+
+# Settings :: Optimizations
+ac_add_options MOZ_PGO=1
+ac_add_options --enable-release
+ac_add_options --disable-debug
+ac_add_options --disable-debug-symbols
+ac_add_options --disable-debug-js-modules
+ac_add_options --disable-tests
+ac_add_options --enable-strip
+ac_add_options --enable-install-strip
+ac_add_options --enable-clang-plugin
+ac_add_options --enable-lto=full
+ac_add_options --linker=lld
+ac_add_options --enable-wasm-avx
+ac_add_options --enable-rust-simd
+ac_add_options --disable-parental-controls
+ac_add_options --disable-crashreporter
+ac_add_options --disable-updater
+ac_add_options --enable-jemalloc
+
+ac_add_options --enable-hardening
+ac_add_options --enable-sandbox
+ac_add_options --enable-replace-malloc
+
+mk_add_options MOZ_PARALLEL_COMPILE=32
+mk_add_options MOZ_PARALLEL_BUILD=32
+mk_add_options MOZ_CRASHREPORTER=0
+mk_add_options MOZ_DATA_REPORTING=0
+mk_add_options MOZ_SERVICES_HEALTHREPORT=0
+mk_add_options MOZ_TELEMETRY_REPORTING=0
+
+# Compiler Flags
+# x86-64-v3
+export RUSTFLAGS="-C opt-level=3 -C target-cpu=x86-64-v3 -C target-feature=+aes -C codegen-units=1 -C debuginfo=0 -C panic=abort -C force-frame-pointers=no -C embed-bitcode=yes -C inline-threshold=2000 -C llvm-args=--vectorize-loops -C llvm-args=--vectorize-slp -C llvm-args=--unroll-threshold=1000"
+
+export CFLAGS="-O3 -march=x86-64-v3 -maes -fno-semantic-interposition -fomit-frame-pointer -fdata-sections -ffunction-sections -fno-plt -funroll-loops -ftree-vectorize -fno-math-errno -freciprocal-math -fno-trapping-math -fno-common -pipe -fmerge-all-constants -fno-signed-zeros -fno-zero-initialized-in-bss"
+
+export CXXFLAGS="$CFLAGS"
+
+export LDFLAGS="-Wl,-O3 -Wl,--gc-sections -Wl,-z,now -Wl,-z,relro -Wl,--icf=all -Wl,--as-needed -Wl,--hash-style=gnu -Wl,--sort-common -Wl,--build-id=none"
+
+export VERBOSE=1
+mk_add_options AUTOCLOBBER=1
+mk_add_options MOZ_MAKE_FLAGS="-j32"
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/objdir-opt
