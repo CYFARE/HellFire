@@ -59,10 +59,21 @@ To build your own version, follow the [Firefox Build Guide](https://firefox-sour
 
 Stay updated with the latest versions and installer on our [Releases](https://github.com/CYFARE/HellFire/releases/) page.
 
-For GNU/Linux, you can either install <a href='https://github.com/CYFARE/HellFire/releases/'><img src="https://img.shields.io/badge/-FLATPAK-61DAFB?style=for-the-badge"></a> or follow the below process:
+For GNU/Linux, follow the below process:
 
-1) Make sure to have following packages: `sudo apt install -y python3-gi python3-gi-cairo gir1.2-gtk-4.0 gir1.2-adw-1`
-2) Download and run `python linux_installer.py`
+### Package Installation
+
+```bash
+sudo apt update && sudo apt install -y python3 python3-tk python3-pip && sudo apt install -y p7zip-full && sudo apt install -y python3-requests python3-pil python3-pil.imagetk
+```
+
+If python3-pil.imagetk is not available, then run: `sudo apt install -y python3-pil`
+
+Run the installer using:
+
+```bash
+python3 hellfire_installer.py
+```
 
 Legacy installer (incase of issues):
 
