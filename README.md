@@ -64,10 +64,8 @@ For GNU/Linux, follow the below process:
 ### Package Installation
 
 ```bash
-sudo apt update && sudo apt install -y python3 python3-tk python3-pip && sudo apt install -y p7zip-full && sudo apt install -y python3-requests python3-pil python3-pil.imagetk
+sudo apt-get update && sudo apt-get install -y python3 python3-tk python3-requests python3-pil
 ```
-
-If python3-pil.imagetk is not available, then run: `sudo apt install -y python3-pil`
 
 Run the installer using:
 

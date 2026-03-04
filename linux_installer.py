@@ -7,10 +7,10 @@ HellFire GUI Installer
 import glob
 import io
 import os
-import re
 import shutil
 import subprocess
 import sys
+import tarfile
 import threading
 import webbrowser
 from pathlib import Path
@@ -35,10 +35,8 @@ class HellFireInstallerTk:
         self.root.minsize(600, 500)
         self.root.configure(bg="#1a1a1a")
 
-        # Center window
         self.center_window()
 
-        # Variables
         self.keyword = "hellfire"
         self.base_dir = Path.home() / "HellFire"
         self.firefox_bin = self.base_dir / "firefox" / "firefox"
@@ -55,7 +53,6 @@ class HellFireInstallerTk:
             "Website": "https://cyfare.net/",
         }
 
-        # Colors matching original GTK4 CSS exactly
         self.colors = {
             'bg_dark': '#1a1a1a',
             'bg_mid': '#2d1b1b',
@@ -73,7 +70,6 @@ class HellFireInstallerTk:
         self.load_avatar()
 
     def center_window(self):
-        """Center the window on screen"""
         self.root.update_idletasks()
         width = 700
         height = 600
@@ -82,11 +78,9 @@ class HellFireInstallerTk:
         self.root.geometry(f'{width}x{height}+{x}+{y}')
 
     def setup_styles(self):
-        """Configure ttk styles"""
         self.style = ttk.Style()
         self.style.theme_use('clam')
 
-        # Progress bar - orange color matching GTK4
         self.style.configure('Horizontal.TProgressbar',
                            background=self.colors['accent'],
                            troughcolor='#333333',
@@ -94,12 +88,10 @@ class HellFireInstallerTk:
                            borderwidth=0)
 
     def hex_to_rgb(self, hex_color):
-        """Convert hex to rgb tuple"""
         hex_color = hex_color.lstrip('#')
         return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 
     def interpolate_color(self, color1, color2, factor):
-        """Interpolate between two colors"""
         r1, g1, b1 = self.hex_to_rgb(color1)
         r2, g2, b2 = self.hex_to_rgb(color2)
         r = int(r1 + (r2 - r1) * factor)
@@ -108,21 +100,16 @@ class HellFireInstallerTk:
         return f'#{r:02x}{g:02x}{b:02x}'
 
     def create_widgets(self):
-        """Create GUI matching original GTK4 layout"""
-        # Main canvas for gradient background
         self.canvas = tk.Canvas(self.root, highlightthickness=0, bg=self.colors['bg_dark'])
         self.canvas.pack(fill=tk.BOTH, expand=True)
 
-        # Create gradient background (160deg angle simulation)
         self.draw_gradient()
 
-        # Scrollable/Container frame for content
         self.container = tk.Frame(self.canvas, bg=self.colors['bg_dark'])
         self.canvas_window = self.canvas.create_window(
             (350, 300), window=self.container, anchor='center', width=500
         )
 
-        # Avatar - 128px circular
         self.avatar_frame = tk.Frame(self.container, bg=self.colors['bg_dark'], width=128, height=128)
         self.avatar_frame.pack(pady=(0, 16))
         self.avatar_frame.pack_propagate(False)
@@ -136,7 +123,6 @@ class HellFireInstallerTk:
         )
         self.avatar_label.place(relx=0.5, rely=0.5, anchor='center')
 
-        # Title - 24pt bold, margin top 16, bottom 8
         self.title_label = tk.Label(
             self.container,
             text="HellFire Browser",
@@ -146,7 +132,6 @@ class HellFireInstallerTk:
         )
         self.title_label.pack(pady=(16, 8))
 
-        # Description - 12pt, opacity 0.8, margin bottom 24
         self.desc_label = tk.Label(
             self.container,
             text="Ready to install the custom compiled browser.",
@@ -158,14 +143,12 @@ class HellFireInstallerTk:
         )
         self.desc_label.pack(pady=(0, 24))
 
-        # Card - translucent, border radius 12, padding 24, margin top 20
         self.card_outer = tk.Frame(self.container, bg=self.colors['bg_dark'])
         self.card_outer.pack(pady=(20, 0), fill=tk.X)
 
-        # Card with border effect
         self.card_frame = tk.Frame(
             self.card_outer,
-            bg='#252525',  # Slightly lighter than bg for card effect
+            bg='#252525',
             highlightbackground=self.colors['card_border'],
             highlightthickness=1,
             padx=24,
@@ -173,7 +156,6 @@ class HellFireInstallerTk:
         )
         self.card_frame.pack(fill=tk.X)
 
-        # Progress bar (hidden initially)
         self.progress_frame = tk.Frame(self.card_frame, bg='#252525')
 
         self.progress_var = tk.DoubleVar(value=0)
@@ -196,7 +178,6 @@ class HellFireInstallerTk:
         )
         self.progress_text.pack()
 
-        # Action button - bold, bg #ff6040, white text, border radius 24, height 50
         self.action_button = tk.Button(
             self.card_frame,
             text="Install HellFire",
@@ -213,11 +194,9 @@ class HellFireInstallerTk:
         )
         self.action_button.pack(pady=(10, 0))
 
-        # Button hover effects
         self.action_button.bind('<Enter>', lambda e: self.action_button.configure(bg=self.colors['accent_hover']))
         self.action_button.bind('<Leave>', lambda e: self.action_button.configure(bg=self.colors['accent']))
 
-        # Social links - horizontal, spacing 12, center aligned
         self.links_frame = tk.Frame(self.card_frame, bg='#252525')
         self.links_frame.pack(pady=(20, 0))
 
@@ -236,25 +215,20 @@ class HellFireInstallerTk:
             link_btn.bind('<Enter>', lambda e, lbl=link_btn: lbl.configure(fg=self.colors['accent_hover']))
             link_btn.bind('<Leave>', lambda e, lbl=link_btn: lbl.configure(fg=self.colors['accent']))
 
-        # Bind resize
         self.root.bind('<Configure>', self.on_resize)
 
     def draw_gradient(self):
-        """Draw 160deg gradient background (simulated vertically)"""
         width = self.root.winfo_width()
         height = self.root.winfo_height()
 
         self.canvas.delete('gradient')
 
-        # Create gradient: #1a1a1a -> #2d1b1b -> #4a2020
         for i in range(height):
             ratio = i / height if height > 0 else 0
 
             if ratio < 0.6:
-                # 0% to 60%: #1a1a1a to #2d1b1b
                 color = self.interpolate_color('#1a1a1a', '#2d1b1b', ratio / 0.6)
             else:
-                # 60% to 100%: #2d1b1b to #4a2020
                 color = self.interpolate_color('#2d1b1b', '#4a2020', (ratio - 0.6) / 0.4)
 
             self.canvas.create_line(0, i, width, i, fill=color, tags='gradient')
@@ -262,7 +236,6 @@ class HellFireInstallerTk:
         self.canvas.tag_lower('gradient')
 
     def on_resize(self, event):
-        """Handle window resize"""
         if event.widget == self.root:
             self.draw_gradient()
             width = event.width
@@ -270,7 +243,6 @@ class HellFireInstallerTk:
             self.canvas.coords(self.canvas_window, width//2, height//2)
 
     def create_circular_image(self, image_path_or_url):
-        """Create circular avatar image"""
         if not PIL_AVAILABLE:
             return None
 
@@ -281,16 +253,13 @@ class HellFireInstallerTk:
             else:
                 image = Image.open(image_path_or_url)
 
-            # Resize to 128x128
             image = image.convert('RGBA')
             image = image.resize((128, 128), Image.Resampling.LANCZOS)
 
-            # Create circular mask
             mask = Image.new('L', (128, 128), 0)
             draw = ImageDraw.Draw(mask)
             draw.ellipse((0, 0, 128, 128), fill=255)
 
-            # Apply mask
             output = Image.new('RGBA', (128, 128), (0, 0, 0, 0))
             output.paste(image, (0, 0))
             output.putalpha(mask)
@@ -301,7 +270,6 @@ class HellFireInstallerTk:
             return None
 
     def load_avatar(self):
-        """Load avatar in background"""
         def fetch():
             img = self.create_circular_image(self.hero_image_url)
             if img:
@@ -310,11 +278,9 @@ class HellFireInstallerTk:
         threading.Thread(target=fetch, daemon=True).start()
 
     def update_status(self, message: str):
-        """Update status label"""
         self.root.after(0, lambda: self.desc_label.configure(text=message))
 
     def update_progress(self, fraction: float, text: str):
-        """Update progress"""
         self.root.after(0, lambda: self._do_update_progress(fraction, text))
 
     def _do_update_progress(self, fraction: float, text: str):
@@ -322,7 +288,6 @@ class HellFireInstallerTk:
         self.progress_text.configure(text=text)
 
     def set_progress_visible(self, visible: bool):
-        """Show/hide progress"""
         def toggle():
             if visible:
                 self.progress_frame.pack(fill=tk.X, pady=(0, 16), before=self.action_button)
@@ -331,16 +296,14 @@ class HellFireInstallerTk:
         self.root.after(0, toggle)
 
     def on_action_button_clicked(self):
-        """Handle install click"""
         self.action_button.configure(state='disabled', text="Working...")
         threading.Thread(target=self._install_flow, daemon=True).start()
 
     def _install_flow(self):
-        """Main installation flow"""
-        self.update_status(f"Searching for '{self.keyword}*.7z'...")
+        self.update_status(f"Searching for '{self.keyword}*.tar.xz'...")
         candidates = []
         for loc in [".", str(Path.home()), str(Path.home() / "Downloads")]:
-            candidates += glob.glob(os.path.join(loc, f"{self.keyword}*.7z"))
+            candidates += glob.glob(os.path.join(loc, f"{self.keyword}*.tar.xz"))
 
         if candidates:
             self.file_to_extract = max(candidates, key=os.path.getmtime)
@@ -360,11 +323,6 @@ class HellFireInstallerTk:
                 return
             self.file_to_extract = path
 
-        if not self._ensure_p7zip():
-            self._reset_ui()
-            return
-        seven = self._find_7z()
-
         self.update_status("Extracting archive...")
         self.set_progress_visible(True)
 
@@ -375,9 +333,9 @@ class HellFireInstallerTk:
             self._reset_ui()
             return
 
-        ok, _ = self._extract_archive(seven, self.file_to_extract, self.base_dir)
+        ok, err_msg = self._extract_archive(self.file_to_extract, self.base_dir)
         if not ok:
-            self.update_status("Extraction failed.")
+            self.update_status(f"Extraction failed: {err_msg}")
             self._reset_ui()
             return
 
@@ -415,89 +373,22 @@ Categories=Network;WebBrowser;
         self.root.after(0, lambda: self.action_button.configure(text="Done"))
 
     def _reset_ui(self):
-        """Reset UI"""
         self.root.after(0, lambda: self.action_button.configure(text="Retry", state='normal'))
         self.set_progress_visible(False)
 
-    def _run(self, cmd, use_sudo=False):
-        """Run command"""
-        full = list(cmd)
-        if use_sudo and os.geteuid() != 0:
-            if shutil.which("pkexec"):
-                full = ["pkexec"] + full
-            elif shutil.which("sudo"):
-                full = ["sudo"] + full
-        try:
-            res = subprocess.run(full, capture_output=True, text=True, check=True)
-            return True, res.stdout.strip()
-        except (FileNotFoundError, subprocess.CalledProcessError) as e:
-            err = getattr(e, "stderr", str(e)) or str(e)
-            return False, err.strip()
-
-    def _run_progress(self, cmd):
-        """Run with progress"""
-        try:
-            proc = subprocess.Popen(
-                cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                text=True, bufsize=1, universal_newlines=True,
-            )
-            if proc.stdout:
-                for line in proc.stdout:
-                    self._parse_7z_progress(line)
-            proc.wait()
-            return (proc.returncode == 0), "Extraction failed"
-        except Exception as e:
-            return False, str(e)
-
-    def _find_7z(self):
-        """Find 7z"""
-        for name in ("7z", "7za", "7zr"):
-            if shutil.which(name):
-                return name
-        return None
-
-    def _ensure_p7zip(self) -> bool:
-        """Ensure p7zip installed"""
-        if self._find_7z():
-            return True
-        self.update_status("Installing p7zip (password may be required)...")
-        self.set_progress_visible(True)
-
-        managers = [
-            ("apt-get", "apt-get update -y && apt-get install -y p7zip-full"),
-            ("pacman", "pacman -Sy --noconfirm p7zip"),
-            ("dnf", "dnf install -y p7zip p7zip-plugins"),
-            ("zypper", "zypper --non-interactive install p7zip p7zip-full"),
-            ("apk", "apk add p7zip"),
-            ("emerge", "emerge --ask=n app-arch/p7zip"),
-        ]
-
-        cmd = None
-        for mgr, c in managers:
-            if shutil.which(mgr):
-                cmd = ["sh", "-c", c] if "&&" in c else c.split()
-                break
-        if not cmd:
-            self.update_status("No supported package manager found.")
-            return False
-        ok, _ = self._run(cmd, use_sudo=True)
-        return ok
-
     def _latest_release_asset(self):
-        """Get latest release"""
         api = "https://api.github.com/repos/CYFARE/HellFire/releases/latest"
         try:
             r = requests.get(api, timeout=12)
             r.raise_for_status()
             for a in r.json().get("assets", []):
-                if a.get("name", "").endswith(".7z"):
+                if a.get("name", "").endswith(".tar.xz"):
                     return a.get("browser_download_url"), a.get("name")
         except Exception:
             self.update_status("GitHub API Error")
         return None, None
 
     def _download(self, url: str, filename: str):
-        """Download with progress"""
         try:
             dest_dir = Path.home() / "Downloads"
             dest_dir.mkdir(parents=True, exist_ok=True)
@@ -520,17 +411,25 @@ Categories=Network;WebBrowser;
         except Exception as e:
             return False, str(e)
 
-    def _parse_7z_progress(self, line):
-        """Parse progress"""
-        m = re.search(r"(\d+)%", line)
-        if m:
-            pct = int(m.group(1))
-            self.update_progress(pct / 100, f"Extracting... {pct}%")
-
-    def _extract_archive(self, seven, archive, out):
-        """Extract archive"""
-        cmd = [seven, "x", f"-o{str(out)}", str(archive), "-bsp1", "-y"]
-        return self._run_progress(cmd)
+    def _extract_archive(self, archive, out):
+        try:
+            with tarfile.open(archive, "r:xz") as tar:
+                members = tar.getmembers()
+                total = max(1, len(members))
+                
+                extract_kwargs = {}
+                if hasattr(tarfile, 'data_filter'):
+                    extract_kwargs['filter'] = 'data'
+                
+                for i, member in enumerate(members):
+                    tar.extract(member, path=out, **extract_kwargs)
+                    
+                    if i % max(1, (total // 100)) == 0 or i == total - 1:
+                        self.update_progress((i + 1) / total, f"Extracting... {int((i + 1) / total * 100)}%")
+                        
+            return True, ""
+        except Exception as e:
+            return False, str(e)
 
 
 def main():
