@@ -5,7 +5,7 @@
 <h2 align="center">
   <img src="https://img.shields.io/badge/-HellFire-61DAFB?logo=firefox&logoColor=white&style=for-the-badge" alt="Product: HellFire">&nbsp;
   <img src="https://img.shields.io/badge/-MPLv2.0-61DAFB?style=for-the-badge" alt="License: MPLv2.0">&nbsp;
-  <img src="https://img.shields.io/badge/-151.0a1-61DAFB?style=for-the-badge" alt="Version: 151.0a1">
+  <img src="https://img.shields.io/badge/-152.0a1-61DAFB?style=for-the-badge" alt="Version: 152.0a1">
 </h2>
 
 **HellFire**, named after the [HellFire Air-To-Surface missile](https://en.wikipedia.org/wiki/AGM-114_Hellfire), is a Firefox build optimized for absolute performance. It's a direct compilation of Firefox, emphasizing maximum performance without any source, configuration, or visual modifications.
@@ -40,18 +40,65 @@ You don't need to have a shady easter-egg inside forked sources.. just download 
 
 ## Compile Time Optimizations
 
-HellFire offers a variety of optimized builds, each tailored for different levels of optimization and security.
+HellFire offers the following optimizations over regular Firefox or Nighly build:
 
-| Configuration          | Optimization and Security Settings                     | Description                                            |
-|------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| HellFire (GNU/Linux)         | `-O3` Optimized, Hardened Security, Sandbox Enabled                  | AVX2 + SSE4.2 + Full LTO |
+| # | Category | Improvement |
+|---|----------|-------------|
+| 1 | Graphics | WebRender force-enabled |
+| 2 | Graphics | Hardware canvas acceleration |
+| 3 | Graphics | Wayland / X11-EGL / DMABUF force-enabled |
+| 4 | Graphics | GPU process + MLGPU forced on |
+| 5 | Graphics | Unlocked frame rate |
+| 6 | Graphics | WebGL / WebGPU unlocked |
+| 7 | Graphics | GfxInfo blocklist neutered |
+| 8 | Media | VA-API hardware video decode |
+| 9 | Media | AV1 via dav1d + ffvpx-hw |
+| 10 | Media | Enlarged media caches |
+| 11 | Media | Low-latency ffmpeg decode |
+| 12 | JS Engine | Aggressive JIT thresholds |
+| 13 | JS Engine | WebAssembly SIMD + relaxed SIMD |
+| 14 | JS Engine | Spectre mitigations disabled |
+| 15 | JS Engine | Ion inlining limits raised |
+| 16 | JS Engine | GC tuning (parallel marking, compacting) |
+| 17 | Memory | mozjemalloc arenas doubled |
+| 18 | Memory | mozjemalloc dirty-page retention increased |
+| 19 | Cache | Larger memory + disk cache |
+| 20 | Networking | HTTP/3 + 0-RTT |
+| 21 | Networking | Raised connection limits |
+| 22 | Networking | Expanded DNS cache |
+| 23 | Networking | Early Hints + predictor |
+| 24 | Networking | TCP Fast Open |
+| 25 | Networking | SSL token cache enlarged |
+| 26 | Networking | HTTP pacing disabled |
+| 27 | Parser | Reduced paint latency |
+| 28 | Parser | Parser interrupt disabled |
+| 29 | IPC | Tuned content process count |
+| 30 | IPC | Fission autostart + bytecode cache |
+| 31 | Startup | PreXUL skeleton UI + blank window |
+| 32 | Startup | Cosmetic animations disabled |
+| 33 | Startup | Speculative connect on urlbar/places |
+| 34 | Session | Reduced sessionstore disk I/O |
+| 35 | Telemetry | All telemetry/reporting killed |
+| 36 | Build | Pocket + Normandy stripped |
+| 37 | Build | Full LTO + PGO |
+| 38 | Build | LLD linker |
+| 39 | Build | Rust SIMD + WASM AVX |
+| 40 | Build | x86-64-v3 target + AES |
+| 41 | Build | Aggressive Rust codegen |
+| 42 | Build | Aggressive C/C++ flags |
+| 43 | Build | Linker hardening + size reduction |
+| 44 | Build | Debug/tests/crashreporter/updater disabled |
+| 45 | Build | Hardened sandbox + replace-malloc |
+| 46 | Build | Parallel compilation |
+| 47 | Accessibility | a11y subsystem disabled |
+| 48 | Tooling | Reversible patch system |
 
-
-For more details, explore our Mozconfigs:
+For more details, explore our Mozconfigs and hellfire_patcher:
 
 - [Linux64 Mozconfigs](https://github.com/CYFARE/HellFire/tree/main/MozConfigs/Linux64)
+- [Hellfire Patcher](https://github.com/CYFARE/HellFire/tree/main/hellfire_patcher.sh)
 
-To build your own version, follow the [Firefox Build Guide](https://firefox-source-docs.mozilla.org/setup/). Ensure you copy the desired mozconfig to `mozilla-unified` and rename it to `mozconfig` before running `./mach build`.
+To build your own version, follow the [Firefox Build Guide](https://firefox-source-docs.mozilla.org/setup/). Ensure you copy the desired mozconfig to `mozilla-unified` and rename it to `mozconfig`, run `chmod +x hellfire_patcher.sh && ./hellfire_patcher.sh --apply` before running `./mach build`.
 
 > For custom builds like 'hardened', 'Insecure' or mixed flag builds, please contact via: security@cyfare.net
 
