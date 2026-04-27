@@ -42,56 +42,9 @@ You don't need to have a shady easter-egg inside forked sources.. just download 
 
 HellFire offers the following optimizations over regular Firefox or Nighly build:
 
-| # | Category | Improvement |
-|---|----------|-------------|
-| 1 | Graphics | WebRender force-enabled |
-| 2 | Graphics | Hardware canvas acceleration |
-| 3 | Graphics | Wayland / X11-EGL / DMABUF force-enabled |
-| 4 | Graphics | GPU process + MLGPU forced on |
-| 5 | Graphics | Unlocked frame rate |
-| 6 | Graphics | WebGL / WebGPU unlocked |
-| 7 | Graphics | GfxInfo blocklist neutered |
-| 8 | Media | VA-API hardware video decode |
-| 9 | Media | AV1 via dav1d + ffvpx-hw |
-| 10 | Media | Enlarged media caches |
-| 11 | Media | Low-latency ffmpeg decode |
-| 12 | JS Engine | Aggressive JIT thresholds |
-| 13 | JS Engine | WebAssembly SIMD + relaxed SIMD |
-| 14 | JS Engine | Spectre mitigations disabled |
-| 15 | JS Engine | Ion inlining limits raised |
-| 16 | JS Engine | GC tuning (parallel marking, compacting) |
-| 17 | Memory | mozjemalloc arenas doubled |
-| 18 | Memory | mozjemalloc dirty-page retention increased |
-| 19 | Cache | Larger memory + disk cache |
-| 20 | Networking | HTTP/3 + 0-RTT |
-| 21 | Networking | Raised connection limits |
-| 22 | Networking | Expanded DNS cache |
-| 23 | Networking | Early Hints + predictor |
-| 24 | Networking | TCP Fast Open |
-| 25 | Networking | SSL token cache enlarged |
-| 26 | Networking | HTTP pacing disabled |
-| 27 | Parser | Reduced paint latency |
-| 28 | Parser | Parser interrupt disabled |
-| 29 | IPC | Tuned content process count |
-| 30 | IPC | Fission autostart + bytecode cache |
-| 31 | Startup | PreXUL skeleton UI + blank window |
-| 32 | Startup | Cosmetic animations disabled |
-| 33 | Startup | Speculative connect on urlbar/places |
-| 34 | Session | Reduced sessionstore disk I/O |
-| 35 | Telemetry | All telemetry/reporting killed |
-| 36 | Build | Pocket + Normandy stripped |
-| 37 | Build | Full LTO + PGO |
-| 38 | Build | LLD linker |
-| 39 | Build | Rust SIMD + WASM AVX |
-| 40 | Build | x86-64-v3 target + AES |
-| 41 | Build | Aggressive Rust codegen |
-| 42 | Build | Aggressive C/C++ flags |
-| 43 | Build | Linker hardening + size reduction |
-| 44 | Build | Debug/tests/crashreporter/updater disabled |
-| 45 | Build | Hardened sandbox + replace-malloc |
-| 46 | Build | Parallel compilation |
-| 47 | Accessibility | a11y subsystem disabled |
-| 48 | Tooling | Reversible patch system |
+<h2 align="center">
+ <img src="https://raw.githubusercontent.com/CYFARE/HellFire/main/Assets/Hellfire_Optimizations.png">
+</h2>
 
 For more details, explore our Mozconfigs and hellfire_patcher:
 
