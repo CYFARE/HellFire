@@ -1,0 +1,7 @@
+// Speedometer 2.1
+
+Firefox 153.0 (CachyOS Packaged) - 382
+HellFire 155.0a1 - 388
+HellFire 155.0a1 (new build) - 324
+Ungoogled Chromium 150.0 - 310
+Floorp 153.0 - 397
