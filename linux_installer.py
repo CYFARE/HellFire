@@ -1210,10 +1210,7 @@ class HellFireInstallerTk:
 
     def _install_flow(self):
         self.show_indeterminate(f"Searching for '{self.keyword}*.tar.xz'…")
-        candidates = []
-        for loc in [".", str(Path.home()), str(Path.home() / "Downloads")]:
-            candidates += glob.glob(os.path.join(loc, f"{self.keyword}*.tar.xz"))
-
+        candidates = self._find_archives()
         if candidates:
             self.file_to_extract = max(candidates, key=os.path.getmtime)
             size_mb = os.path.getsize(self.file_to_extract) / (1024 * 1024)
@@ -1287,10 +1284,16 @@ class HellFireInstallerTk:
             self._fail(f"Setup failed: {e}")
             return
 
+        # Sweep every cached archive (see _remove_archives) so the next run
+        # can't pick up an older leftover instead of downloading the latest.
+        done_msg = "Installation complete — launch from your menu"
+        err = self._remove_archives()
+        if err:
+            done_msg = f"Installed, but couldn't remove archive: {err}"
+
         self.stop_indeterminate()
         self.update_progress(1.0, "Installation complete")
-        self.update_status("Installation complete — launch from your menu",
-                           dot=self.colors["success"])
+        self.update_status(done_msg, dot=self.colors["success"])
         self._set_stat("status", value="Done", sub="Successful")
         self._installed = True
         self.root.after(0, self._mark_done)
@@ -1376,15 +1379,35 @@ class HellFireInstallerTk:
         except Exception as e:
             return False, str(e)
 
+    # ----- archives ----------------------------------------------------------
+
+    def _find_archives(self):
+        """Every '<keyword>*.tar.xz' in the locations the installer searches."""
+        candidates = []
+        for loc in [".", str(Path.home()), str(Path.home() / "Downloads")]:
+            candidates += glob.glob(os.path.join(loc, f"{self.keyword}*.tar.xz"))
+        return candidates
+
+    def _remove_archives(self):
+        """Delete every cached archive, not just the one extracted, so the next
+        run downloads the latest release instead of falling back to an older
+        leftover. Returns the first error encountered, or None."""
+        paths = {os.path.abspath(p) for p in self._find_archives()}
+        paths.add(os.path.abspath(self.file_to_extract))
+        first_error = None
+        for path in sorted(paths):
+            try:
+                os.remove(path)
+            except OSError as e:
+                first_error = first_error or e
+        return first_error
+
     # ----- stats refresh -----------------------------------------------------
 
     def _refresh_stats(self):
         """Pre-fetch release info so top cards show real data on launch."""
         # 1) Check for a local cached file first
-        candidates = []
-        for loc in [".", str(Path.home()), str(Path.home() / "Downloads")]:
-            candidates += glob.glob(os.path.join(loc, f"{self.keyword}*.tar.xz"))
-
+        candidates = self._find_archives()
         if candidates:
             cached = max(candidates, key=os.path.getmtime)
             size_mb = os.path.getsize(cached) / (1024 * 1024)
